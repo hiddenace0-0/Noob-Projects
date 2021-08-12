@@ -73,7 +73,7 @@ def player2_choice():
 
 def tie_check():
     global active_game
-    if count >= 9:
+    if count > 9:
         active_game = False
         print("This game has ended in a tie")
 def check():
