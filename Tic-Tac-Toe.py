@@ -16,23 +16,23 @@ def player1_choice():
     limit = 0
     if limit < 100:
 
-        if user1_input == '1':
+        if user1_input == '1' and board[0][0] == '-':
             board[0][0] = 'x' 
-        elif user1_input == '2':
+        elif user1_input == '2' and board[0][1] == '-':
             board[0][1] = 'x'
-        elif user1_input == '3':
+        elif user1_input == '3' and board[0][2] == '-':
             board[0][2] = 'x'
-        elif user1_input == '4':
+        elif user1_input == '4' and board[1][0] == '-':
             board[1][0] = 'x'
-        elif user1_input == '5':
+        elif user1_input == '5' and board[1][1] == '-':
             board[1][1] = 'x'
-        elif user1_input == '6':
+        elif user1_input == '6' and board[1][2] == '-':
             board[1][2] = 'x'
-        elif user1_input == '7':
+        elif user1_input == '7' and board[2][0] == '-':
             board[2][0] = 'x'
-        elif user1_input == '8':
+        elif user1_input == '8' and board[2][1] == '-':
             board[2][1] = 'x'
-        elif user1_input == '9':
+        elif user1_input == '9' and board[2][2] == '-':
             board[2][2] = 'x'
         else:
             player1_choice()
@@ -48,32 +48,33 @@ def player2_choice():
     if limit < 100:
         if user2_input == '1' and board[0][0] == '-':
             board[0][0] = '0' 
-        elif user2_input == '2':
+        elif user2_input == '2' and board[0][1] == '-':
             board[0][1] = '0'
-        elif user2_input == '3':
+        elif user2_input == '3' and board[0][2] == '-':
             board[0][2] = '0'
-        elif user2_input == '4':
+        elif user2_input == '4' and board[1][0] == '-':
             board[1][0] = '0'
-        elif user2_input == '5':
+        elif user2_input == '5' and board[1][1] == '-':
             board[1][1] = '0'
-        elif user2_input == '6':
+        elif user2_input == '6' and board[1][2] == '-':
             board[1][2] = '0'
-        elif user2_input == '7':
+        elif user2_input == '7' and board[2][0] == '-':
             board[2][0] = '0'
-        elif user2_input == '8':
+        elif user2_input == '8' and board[2][1] == '-':
             board[2][1] = '0'
-        elif user2_input == '9':
+        elif user2_input == '9' and board[2][2] == '-':
             board[2][2] = '0'
         else:
             player2_choice()
             limit += 1
     else:
         print("Too many wrong choice")
+        
 
 
 def tie_check():
     global active_game
-    if count > 9:
+    if count == 9 and active_game != False:
         active_game = False
         print("This game has ended in a tie")
 def check():
@@ -125,16 +126,16 @@ def start_game():
     while active_game == True:
         player1_choice()
         count += 1
-        tie_check()
         check()
+        tie_check()
         if active_game == False:
             print("Player 1 wins the game!\n Hope you play again soon :)\n")
             break
         
         player2_choice()
         count += 1
-        tie_check()
         check()
+        tie_check()
         print_board()
         if active_game == False:
             print("Player 2 wins the game!\n Hope you play again soon :)\n")
